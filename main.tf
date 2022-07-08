@@ -60,7 +60,7 @@ resource "datadog_dashboard" "api" {
       title = "API Response Latency 95th Percentile"
 
       request {
-        q            = "sum:api.res.ltcy.p95{$cluster, $environment} by {host, classname, methodname}"
+        q            = "avg:api.res.ltcy.p95{$cluster, $environment} by {host, classname, methodname}"
         display_type = "line"
       }
     }
